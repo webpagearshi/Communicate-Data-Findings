@@ -4,36 +4,51 @@
 
 ## Dataset
 
-> The dataset which I will be exploring is the Prosper Loan dataset. The dataset has 113937 rows and 81 columns. I will not be using 
+The dataset which I will be exploring is the Prosper Loan dataset. The dataset has 113937 rows and 81 columns. I will not be using 
 all the columns for exploration. Prosper is an online platform for peer-to-peer lending. It connects borrowers to investors directly. 
 
-> We will be looking into data in the following columns:
+ We will be looking into data in the following columns:
 'ListingKey','Term','LoanStatus','EstimatedReturn','LenderYield','Occupation','EmploymentStatus','EmploymentStatusDuration',
 'ListingCreationDate','CreditScore' (we have created this column by calculating the average of CreditScoreRangeUpper and CreditScoreRangeLower,'AmountDelinquent','DelinquenciesLast7Years','InquiriesLast6Months','BankcardUtilization',
 'DebtToIncomeRatio','IncomeRange','IncomeVerifiable','StatedMonthlyIncome','OnTimeProsperPayments','PublicRecordsLast10Years','PublicRecordsLast12Months','ProsperPrincipalBorrowed','ProsperPrincipalOutstanding',
 'TotalCreditLinespast7years','FirstRecordedCreditLine','TotalProsperLoans','ProsperPaymentsLessThanOneMonthLate',
 'ProsperPaymentsOneMonthPlusLate'.
+
 This dataset is of interest to both borrowers and investors but my exploration will be focused on which factors will help the investors get better returns and hold a diverse portfolio with minimum risk.
 
 ## Summary of Findings
 
-> I started my exploration process by analysing the Occupation column. As this column has an Outlier Other which is not explanatory we plotted the chart without the outlier to identify the top 30 most common Occupations of the borrowers.
-> The EmploymentStatus plot had three catgories Employed, Full-time and Part-time which I have merged into one since Employed did not specify whether it was full-time or part-time. We can now see that more than 80% of the borrowers are employed.
-> Debt Consolidation is the most common Listing Category for the borrowers followed by home improvement, business and auto. A little less than 25% of the listings fall in the NotAvailable and Other category which are non-specific.
-> Around 47% of loans have status completed followed by about 34% of current loans. Loan status Charged off is about 10%, followed by about 4-5% of Defaulted and a small % of loans which are past due. This gives a confidence that there is a high chance of the loan being paid.
-> The 36 month term has the maximum count. This means that more number of borrowers borrow for 36 months. At a later stage I would like to explore if there is a relationship between term and risk.
-> The count for InquiriesLast6Months reflects the number of inquiries/credit checks in the past 6 months at the time the credit profile was pulled. A higher count might reflect greater risk of default. 
-> The count for ProsperCreditRating is maximum for 'C', followed by 'B' and 'D'. Higher ratings mean lower risk but also lower returns. Investors like to maintain a mixed portfolio so that they can get higher returns, hence this will be an important feature to explore further.
-> From the IncomeRange plot we can see that most of the borrowers have an income above 25,000(dollars).
-> From the IncomeVerifiable plot we can see that most of the Income stated has been verified.
-> In the PublicRecordsLast10Years we have limited the plot to a value of 10 because we don't want to invest with people having higher number of Public Records.
-> In the PublicRecordsLast12Months we have an outlier at 20.0. Again we would like to avoid people with public records as chances of default increases. It would be interesting to see if people having higher number of PublicRecordsLast10Years have records in the last 12 months.
-> The dataset has two columns for CreditScore, CreditScoreRangeLower and CreditScoreRangeUpper. To make evaluation easier I have created a new column CreditScore(average of the upper and lower range values). The graph has been plotted in 2 subplots , with and without limits. A CreditScore closer to value 0 is an outlier. We can see that most of the CreditScore values lie in the range between 500-900 with peaks around 700.
-> Plotting the Original Loan amount in bins we can observe that the frequency of borrowers who have originally borrowed an amount less than 5000 is more. We have spikes around 10,000 and 15,000. The graph shows that there are a few borrowers who have borrowed more than 15,000 but most of the borrowers have borrowed a smaller amount. The range of loans is observed to be within 1000-35000 dollars.
-> In the DebtToIncomeRatio plot we can observe that most of the borrowers have a ratio less than 1.0 with most values between 0.1-0.4. This increases investor confidence as a high count of high values of DebtToIncomeRatio makes investing in Prosper very high risk.
-> The counts for ProsperPaymentsLessThanOneMonthLate and ProsperPaymentsOneMonthPlusLate having value zero is very high. To get a better idea we remove the value zero and plot the chart again. The number of two time defaulters for payments delayed for less than a month is almost around 700, three time defaulters is more than 250. The number of two time defaulters for payments delayed for more than a month is around 70 and for three time defaulters is around 50. So while the count of non-defaulter is quiet high we also need to explore defaulter information in more detail.
-> Most of the loans have an Estimated Return between the range 0.0-0.2 with peaks between 0.05 to 0.15. We can also see negative returns which indicate a chance of loss. 
-> The count of borrowers having zero amountdelinquent is quiet high, on closer observation we find that lower values of AmountDelinquent have higher count though there are outliers where the amountdelinquent is quiet high.
+ I started my exploration process by analysing the Occupation column. As this column has an Outlier Other which is not explanatory we plotted the chart without the outlier to identify the top 30 most common Occupations of the borrowers.
+ 
+ The EmploymentStatus plot had three catgories Employed, Full-time and Part-time which I have merged into one since Employed did not specify whether it was full-time or part-time. We can now see that more than 80% of the borrowers are employed.
+ 
+ Debt Consolidation is the most common Listing Category for the borrowers followed by home improvement, business and auto. A little less than 25% of the listings fall in the NotAvailable and Other category which are non-specific.
+ 
+ Around 47% of loans have status completed followed by about 34% of current loans. Loan status Charged off is about 10%, followed by about 4-5% of Defaulted and a small % of loans which are past due. This gives a confidence that there is a high chance of the loan being paid.
+ 
+The 36 month term has the maximum count. This means that more number of borrowers borrow for 36 months. At a later stage I would like to explore if there is a relationship between term and risk.
+
+The count for InquiriesLast6Months reflects the number of inquiries/credit checks in the past 6 months at the time the credit profile was pulled. A higher count might reflect greater risk of default.
+
+The count for ProsperCreditRating is maximum for 'C', followed by 'B' and 'D'. Higher ratings mean lower risk but also lower returns. Investors like to maintain a mixed portfolio so that they can get higher returns, hence this will be an important feature to explore further.
+
+-From the IncomeRange plot we can see that most of the borrowers have an income above 25,000(dollars).
+-From the IncomeVerifiable plot we can see that most of the Income stated has been verified.
+-In the PublicRecordsLast10Years we have limited the plot to a value of 10 because we don't want to invest with people having higher number of Public Records.
+
+In the PublicRecordsLast12Months we have an outlier at 20.0. Again we would like to avoid people with public records as chances of default increases. It would be interesting to see if people having higher number of PublicRecordsLast10Years have records in the last 12 months.
+
+The dataset has two columns for CreditScore, CreditScoreRangeLower and CreditScoreRangeUpper. To make evaluation easier I have created a new column CreditScore(average of the upper and lower range values). The graph has been plotted in 2 subplots , with and without limits. A CreditScore closer to value 0 is an outlier. We can see that most of the CreditScore values lie in the range between 500-900 with peaks around 700.
+
+Plotting the Original Loan amount in bins we can observe that the frequency of borrowers who have originally borrowed an amount less than 5000 is more. We have spikes around 10,000 and 15,000. The graph shows that there are a few borrowers who have borrowed more than 15,000 but most of the borrowers have borrowed a smaller amount. The range of loans is observed to be within 1000-35000 dollars.
+
+In the DebtToIncomeRatio plot we can observe that most of the borrowers have a ratio less than 1.0 with most values between 0.1-0.4. This increases investor confidence as a high count of high values of DebtToIncomeRatio makes investing in Prosper very high risk.
+
+The counts for ProsperPaymentsLessThanOneMonthLate and ProsperPaymentsOneMonthPlusLate having value zero is very high. To get a better idea we remove the value zero and plot the chart again. The number of two time defaulters for payments delayed for less than a month is almost around 700, three time defaulters is more than 250. The number of two time defaulters for payments delayed for more than a month is around 70 and for three time defaulters is around 50. So while the count of non-defaulter is quiet high we also need to explore defaulter information in more detail.
+
+Most of the loans have an Estimated Return between the range 0.0-0.2 with peaks between 0.05 to 0.15. We can also see negative returns which indicate a chance of loss. 
+
+The count of borrowers having zero amountdelinquent is quiet high, on closer observation we find that lower values of AmountDelinquent have higher count though there are outliers where the amountdelinquent is quiet high.
 > We can observe that number of borrowers who have been delinquent once in last 7 years is maximum with a count of more than 3800. We can also observe that borrowers have been delinquent upto 99 times in last 7 years(outlier). It would be interesting to find the common features for borrowers who have more number of delinquencies.
 > Lender Yield is the interest rate less the servicing fee. We can see that the yield has a peak at 0.3 which is 30%, with most of the values between 0.05 and 0.35.
 > To have a better understanding of the borrowers that have successfully closed their loans I have explored the CreditScore, ProsperCreditRating, IncomeRange and LoanOriginalAmount for borrowers who have already closed their loans and we can see that creditscore peaks at around 700, more number of borrowers have Prosper Credit Ratings of D and above, income range between mostly lies above 25,000 dollars and loan original amount is less than 5000 in most cases.
