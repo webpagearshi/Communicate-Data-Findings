@@ -33,7 +33,9 @@ The count for InquiriesLast6Months reflects the number of inquiries/credit check
 The count for ProsperCreditRating is maximum for 'C', followed by 'B' and 'D'. Higher ratings mean lower risk but also lower returns. Investors like to maintain a mixed portfolio so that they can get higher returns, hence this will be an important feature to explore further.
 
 -From the IncomeRange plot we can see that most of the borrowers have an income above 25,000(dollars).
+
 -From the IncomeVerifiable plot we can see that most of the Income stated has been verified.
+
 -In the PublicRecordsLast10Years we have limited the plot to a value of 10 because we don't want to invest with people having higher number of Public Records.
 
 In the PublicRecordsLast12Months we have an outlier at 20.0. Again we would like to avoid people with public records as chances of default increases. It would be interesting to see if people having higher number of PublicRecordsLast10Years have records in the last 12 months.
@@ -49,18 +51,27 @@ The counts for ProsperPaymentsLessThanOneMonthLate and ProsperPaymentsOneMonthPl
 Most of the loans have an Estimated Return between the range 0.0-0.2 with peaks between 0.05 to 0.15. We can also see negative returns which indicate a chance of loss. 
 
 The count of borrowers having zero amountdelinquent is quiet high, on closer observation we find that lower values of AmountDelinquent have higher count though there are outliers where the amountdelinquent is quiet high.
-> We can observe that number of borrowers who have been delinquent once in last 7 years is maximum with a count of more than 3800. We can also observe that borrowers have been delinquent upto 99 times in last 7 years(outlier). It would be interesting to find the common features for borrowers who have more number of delinquencies.
-> Lender Yield is the interest rate less the servicing fee. We can see that the yield has a peak at 0.3 which is 30%, with most of the values between 0.05 and 0.35.
-> To have a better understanding of the borrowers that have successfully closed their loans I have explored the CreditScore, ProsperCreditRating, IncomeRange and LoanOriginalAmount for borrowers who have already closed their loans and we can see that creditscore peaks at around 700, more number of borrowers have Prosper Credit Ratings of D and above, income range between mostly lies above 25,000 dollars and loan original amount is less than 5000 in most cases.
-> To have a better understanding of the borrowers that have successfully closed their loans I have explored the CreditScore, ProsperCreditRating, IncomeRange and LoanOriginalAmount for borrowers who have already closed their loans and we can see that creditscore peaks at around 700, more number of borrowers have Prosper Credit Ratings of D and above, income range between mostly lies above 25,000 dollars and loan original amount is less than 5000 in most cases.
-> We have plotted a heatmap to investigate the relationship between ListingCategory and LoanStatus and our observations were:
+
+We can observe that number of borrowers who have been delinquent once in last 7 years is maximum with a count of more than 3800. We can also observe that borrowers have been delinquent upto 99 times in last 7 years(outlier). It would be interesting to find the common features for borrowers who have more number of delinquencies.
+
+Lender Yield is the interest rate less the servicing fee. We can see that the yield has a peak at 0.3 which is 30%, with most of the values between 0.05 and 0.35.
+
+To have a better understanding of the borrowers that have successfully closed their loans I have explored the CreditScore, ProsperCreditRating, IncomeRange and LoanOriginalAmount for borrowers who have already closed their loans and we can see that creditscore peaks at around 700, more number of borrowers have Prosper Credit Ratings of D and above, income range between mostly lies above 25,000 dollars and loan original amount is less than 5000 in most cases.
+
+To have a better understanding of the borrowers that have successfully closed their loans I have explored the CreditScore, ProsperCreditRating, IncomeRange and LoanOriginalAmount for borrowers who have already closed their loans and we can see that creditscore peaks at around 700, more number of borrowers have Prosper Credit Ratings of D and above, income range between mostly lies above 25,000 dollars and loan original amount is less than 5000 in most cases.
+
+We have plotted a heatmap to investigate the relationship between ListingCategory and LoanStatus and our observations were:
 - 1.The listing category Debt Consolidation has the maximum number of current and completed loans and second largest number of charged off loans, the first being a category which is no longer available.
+
 - 2.The category which is no longer available has the worst performance in terms of defaulted and chargedoff loans.
+
 - 3.DebtConsolidation comes a close second in defaulted and charged of loans, but as we can see from the current and completed loans the volume of this category is very high and hence the % of defaulted and charged off loans would be much lower values.
+
 - 4.Business , Other and Personal loans are categories which have large number off chargedoff and defaults.
-> We can observe that DebtConsolidation has peaks around 0.15 and 0.3, but most of the yield values range between 0.1 and 0.2. Medical/Dental, Other, Auto, Business, Home Improvement, Household Expense have peaks at 0.3. This shows a probability of getting interest at around 30%. Personal Loan has a peak around 0.35. For Debt Consolidation the range for yield is from 0.04 to 3.5
-> Debt Consolidation has Credit Scores in the range 600-800 which are good scores and indicate lower risk factor. Business. Home Improvement , Other all have peaks at the range 600-800. Boats have a credit score range of 700-800 which is quiet high, indicating that it is a luxury item and people taking loans to buy it are financially more stable.
->  We have observed that the average Delinquencies in Last 7 Years is maximum for EmploymentStatus 'not available' followed by retired and other. Self-employed and employed borrowers have relatively lower delinquencies and short error bars. Surprisingly not employed borrowers have the lowest mean delinquencies but the error bar is second longest with retired borrowers having the longest error bar. The errorbars represent uncertainity in mean based on variance and sample size.
+
+We can observe that DebtConsolidation has peaks around 0.15 and 0.3, but most of the yield values range between 0.1 and 0.2. Medical/Dental, Other, Auto, Business, Home Improvement, Household Expense have peaks at 0.3. This shows a probability of getting interest at around 30%. Personal Loan has a peak around 0.35. For Debt Consolidation the range for yield is from 0.04 to 3.5
+Debt Consolidation has Credit Scores in the range 600-800 which are good scores and indicate lower risk factor. Business. Home Improvement , Other all have peaks at the range 600-800. Boats have a credit score range of 700-800 which is quiet high, indicating that it is a luxury item and people taking loans to buy it are financially more stable.
+We have observed that the average Delinquencies in Last 7 Years is maximum for EmploymentStatus 'not available' followed by retired and other. Self-employed and employed borrowers have relatively lower delinquencies and short error bars. Surprisingly not employed borrowers have the lowest mean delinquencies but the error bar is second longest with retired borrowers having the longest error bar. The errorbars represent uncertainity in mean based on variance and sample size.
 > Borrowers who are not employed have the highest debt to income ratio followed by 1-24,999 dollar income range. 75,000-99,999 and 50,000-74,999 dollars Income range borrowers have low Average Debt-to-Income ratio and smaller average ProsperPaymentsOneMonthPlusLate value. We can also observe that the error bars are longer for not employed in both plots.
 > We can see that the Loan Term of 36 months has the most frequency followed by 60 months. From the plot we can see that 12 months term is only available for completed loans hence there is a high probability that 12 month loans are no longer available.
 > When we plot ProsperCreditRatings v/s EstimatedReturn and v/s LenderYield as subplots we observe that Estimated Return has better returns for ProsperRatings B, C and D. HR has a higher peak than B, and C but it also has a huge number of outliers with low and negative results.
